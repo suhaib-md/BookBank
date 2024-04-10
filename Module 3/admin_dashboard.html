@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1 id="title" class="center-text mt-5" style="font-family: 'Abril Fatface', cursive;color:#262626;">Admin Dashboard</h1>
+</div>
+<section>
+
+    <nav class="menu">
+        <!-- Add admin-specific options here -->
+        <button class="accordion">Manage Users</button>
+        <div class="panel">
+            <button class="accordion-2" onclick="viewUsers()">View Users</button>
+            <!-- Add more options as needed -->
+        </div>
+        <button class="accordion">Manage Books</button>
+        <div class="panel">
+            <button class="accordion-2" onclick="viewBooks()">View Books</button>
+            <button class="accordion-2" onclick="addBook()">Add Book</button>
+            <button class="accordion-2" onclick="deleteBook()">Delete Book</button>
+            <!-- Add more options as needed -->
+        </div>
+        <button class="accordion">Search eBooks</button>
+	 		<div class="panel">
+				<button class="accordion-2" onclick="window.open('https://books.google.com/');">Google Books</button>
+				<button class="accordion-2" onclick="window.open('https://www.amazon.com/Kindle-eBooks');">Kindle</button>
+			</div>
+			<button class="accordion">GATE Materials</button>
+	 		<div class="panel">
+				<button class="accordion-2" onclick="window.open('https://bit.ly/GATE-CSE')">GATE Civil</button>
+				<button class="accordion-2" onclick="window.open('https://bit.ly/GATE-CSE')">GATE CSE</button>
+				<button class="accordion-2" onclick="window.open('https://bit.ly/GATE-ECE')">GATE ECE</button>
+				<button class="accordion-2" onclick="window.open('https://bit.ly/GATE-ECE')">GATE EEE</button>
+				<button class="accordion-2" onclick="window.open('https://bit.ly/GATEMECH')">GATE Mech</button>
+			</div>
+			<button class="accordion">Lab Manuals</button>
+			<div class="panel">
+				<button class="accordion-2" onclick="window.open('https://')">Civil</button>
+				<button class="accordion-2" onclick="window.open('https://')">CSE</button>
+				<button class="accordion-2" onclick="window.open('https://')">ECE</button>
+				<button class="accordion-2" onclick="window.open('https://')">EEE</button>
+				<button class="accordion-2" onclick="window.open('https://')">Mech</button>
+			</div>
+			<button class="accordion-2" onclick="window.open('https://www.rejinpaul.com/2013/06/ece-eee-cse-it-mech-civil-bme-mba-mca-me-notes-anna-university.html')">AU Notes</button>
+			<button class="accordion-2" onclick="window.location.href='../Module 5/contact.html'">Contact Us</button>
+        <!-- End of admin-specific options -->
+        <button class="accordion-2" onclick="window.location.href='../Module 5/contact.html'">Contact Us</button>
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+
+            // Functions for admin-specific actions
+            function viewUsers() {
+                // Code to view users goes here
+            }
+
+            function viewBooks() {
+                // Code to view books goes here
+            }
+
+            function addBook() {
+                // Code to add book goes here
+            }
+
+            function deleteBook() {
+                // Code to delete book goes here
+            }
+        </script>
+    </nav>
+    <article>
+        <form method="post">
+            <div style="text-align:center">
+                <h3 style='font-family: "Righteous", cursive;	'>Select your Department and Year </h3><br/>
+                <br/><br/>
+                <select name="department" id="department" style="padding:8px;font-size:15px;border-radius: 0.2em;border: 0;outline:none">
+                    <option value="def" selected disabled>Department</option>
+            <option value="civil" name="" >Civil</option>
+                    <option value="cse" name="" >CSE</option>
+            <option value="ece"name="">ECE</option>
+                    <option value="eee"name="" >EEE</option>
+                    <option value="mech" name="" >Mech</option>
+          </select>
+          <select name="year" id="year" style="margin-left:15px;padding:8px;font-size:15px;width:106px;border-radius: 0.2em;border: 0;outline:none;" >
+                    <option value="def" selected disabled>Year</option>
+            <option value="1y" name="" >I Year</option>
+            <option value="2y"name="" >II Year</option>
+            <option value="3y"name="">III Year</option>
+            <option value="4y"name="">IV Year</option>
+          </select>
+          <br/>
+      </div>
+            <br/>
+            <button class="logout" type="submit" value="Submit" style="margin-left: 402px;text-decoration: none;color:#ffffff;font-weight:bolder;cursor:pointer" onclick="redirect()">Submit</button>
+        </form>
+    </article>
+    <div class="right">
+        <button class="logout" style="text-align: center;margin-left: 120px;"><a href="logout.php" style="text-decoration: none;color:#ffffff;font-weight:bolder;">Logout</a></button>
+    </div>
+</section>
+<footer>
+</footer>
+</body>
+</html>
