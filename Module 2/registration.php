@@ -23,16 +23,32 @@
         // removes backslashes
         $fname = stripslashes($_REQUEST['first_name']);
         $fname = mysqli_real_escape_string($con, $fname);
+		if (!preg_match("/^[a-zA-Z ]*$/", $fname)) {
+			$nameErr = "Only letters and white space allowed";
+			echo "<script>alert('$nameErr');</script>";
+		}
         $lname = stripslashes($_REQUEST['last_name']);
         $lname = mysqli_real_escape_string($con, $lname);
-				$profession = stripslashes($_REQUEST['title']);
+		if (!preg_match("/^[a-zA-Z ]*$/", $lname)) {
+			$nameErr = "Only letters and white space allowed";
+			echo "<script>alert('$nameErr');</script>";
+		}
+		$profession = stripslashes($_REQUEST['title']);
         $profession = mysqli_real_escape_string($con, $profession);
         $Institution    = stripslashes($_REQUEST['company']);
         $Institution    = mysqli_real_escape_string($con, $Institution);
         $email    = stripslashes($_REQUEST['your_email']);
         $email    = mysqli_real_escape_string($con, $email);
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$emailErr = "Invalid email format";
+			echo "<script>alert('$emailErr');</script>";
+		}
         $phone = stripslashes($_REQUEST['phone']);
         $phone = mysqli_real_escape_string($con, $phone);
+		if (!preg_match("/^[0-9]+$/", $phone)) {
+			$phoneErr = "Only digits allowed";
+			echo "<script>alert('$phoneErr');</script>";
+		}
         $username = stripslashes($_REQUEST['Username']);
         $username = mysqli_real_escape_string($con, $username);
         $password = stripslashes($_REQUEST['Password']);
